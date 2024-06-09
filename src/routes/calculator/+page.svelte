@@ -87,6 +87,13 @@
 	onMount(() => {
 		// Perform any necessary actions on component mount
 	});
+
+	function formatCurrency(value: any) {
+		return new Intl.NumberFormat('id-ID', {
+			style: 'currency',
+			currency: 'IDR'
+		}).format(value);
+	}
 </script>
 
 <main class="h-screen flex">
@@ -342,15 +349,17 @@
 							<div class="font-bold">Calculation results:</div>
 							<div>
 								Harga sapi di kandang (Rp): <span class="font-semibold"
-									>Rp {calculations.hargaSapiDiKandang().toFixed(2)}</span
+									>{formatCurrency(calculations.hargaSapiDiKandang().toFixed(2))}</span
 								>
 							</div>
 							<div>
-								HPP (Rp/Kg): <span class="font-semibold">Rp {calculations.hpp().toFixed(2)}</span>
+								HPP (Rp/Kg): <span class="font-semibold"
+									>{formatCurrency(calculations.hpp().toFixed(2))}</span
+								>
 							</div>
 							<div>
 								Nett Profit Rp./Ekor: <span class="font-semibold"
-									>Rp {calculations.nettProfitPerEkor().toFixed(2)}</span
+									>{formatCurrency(calculations.nettProfitPerEkor().toFixed(2))}</span
 								>
 							</div>
 						</div>
