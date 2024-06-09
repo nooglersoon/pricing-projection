@@ -33,7 +33,7 @@ export const usePriceCalculations = (values: FormValues) => {
   }
 
   const hargaSapiDiKandang = (): number => {
-    if (!values.beratSapi) { return 0; }
+    if (!beratSapi) { return 0; }
     return jumlah() / beratSapi;
   }
 

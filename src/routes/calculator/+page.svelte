@@ -41,16 +41,16 @@
 
 		setTimeout(() => {
 			const data = {
-				'Nilai Tukar USD. Ke Rp': $values.nilaiTukarUSD,
+				'Nilai Tukar USD. Ke Rp': parseFloat($values.nilaiTukarUSD),
 				'Nilai Beli Sapi CIF': calculations.nilaiBeliSapiCIF(),
 				'Bea Masuk': calculations.beaMasuk(),
 				'PPH Impor': calculations.pphImpor(),
-				'Biaya-Biaya Import': $values.biayaImport,
+				'Biaya-Biaya Import': parseFloat($values.biayaImport),
 				Jumlah: calculations.jumlah(),
 				'Harga Sapi Di Kandang (Rp./Kg)': calculations.hargaSapiDiKandang(),
 				'Biaya Pemeliharaan (Rp/ekor)': calculations.hargaPemeliharaan(),
 				'Biaya Over Head': calculations.biayaOverhead(),
-				'Biaya Marketing': $values.biayaMarketing,
+				'Biaya Marketing': parseFloat($values.biayaMarketing),
 				'Biaya Bunga': calculations.biayaBunga(),
 				'Total Biaya': calculations.totalBiaya(),
 				'Berat Akhir Sapi Potong (Kg.)': calculations.beratAkhirSapiPotong(),
@@ -62,7 +62,6 @@
 			};
 			results.set(data);
 			isLoading.set(false);
-			console.log(data);
 			openModal();
 		}, 1000);
 	};
@@ -114,6 +113,7 @@
 						class="block w-full border rounded-md px-4 py-2 border-slate-200 mt-4"
 						placeholder="0"
 						pattern="^\d*\.?\d*$"
+						required
 					/>
 				</div>
 				<div class="w-full px-2 mb-4 md:mb-0 my-4">
@@ -127,6 +127,7 @@
 						class="block w-full border rounded-md px-4 py-2 border-slate-200 mt-4"
 						placeholder="0"
 						pattern="^\d*\.?\d*$"
+						required
 					/>
 				</div>
 				<div class="w-full px-2 mb-4 md:mb-0 my-4">
@@ -140,6 +141,7 @@
 						class="block w-full border rounded-md px-4 py-2 border-slate-200 mt-4"
 						placeholder="0"
 						pattern="^\d*\.?\d*$"
+						required
 					/>
 				</div>
 			</div>
@@ -155,6 +157,7 @@
 						class="block w-full border rounded-md px-4 py-2 border-slate-200 mt-4"
 						placeholder="0"
 						pattern="^\d*\.?\d*$"
+						required
 					/>
 				</div>
 				<div class="w-full px-2 mb-4 md:mb-0 my-4">
@@ -168,6 +171,7 @@
 						class="block w-full border rounded-md px-4 py-2 border-slate-200 mt-4"
 						placeholder="0"
 						pattern="^\d*\.?\d*$"
+						required
 					/>
 				</div>
 			</div>
@@ -183,6 +187,7 @@
 						class="block w-full border rounded-md px-4 py-2 border-slate-200 mt-4"
 						placeholder="0"
 						pattern="^\d*\.?\d*$"
+						required
 					/>
 				</div>
 				<div class="w-full px-2 mb-4 md:mb-0 my-4">
@@ -198,6 +203,7 @@
 						class="block w-full border rounded-md px-4 py-2 border-slate-200 mt-4"
 						placeholder="0"
 						pattern="^\d*\.?\d*$"
+						required
 					/>
 				</div>
 			</div>
@@ -215,6 +221,7 @@
 						class="block w-full border rounded-md px-4 py-2 border-slate-200 mt-4"
 						placeholder="0"
 						pattern="^\d*\.?\d*$"
+						required
 					/>
 				</div>
 				<div class="w-full px-2 mb-4 md:mb-0 my-4">
@@ -230,6 +237,7 @@
 						class="block w-full border rounded-md px-4 py-2 border-slate-200 mt-4"
 						placeholder="0"
 						pattern="^\d*\.?\d*$"
+						required
 					/>
 				</div>
 			</div>
@@ -247,6 +255,7 @@
 						class="block w-full border rounded-md px-4 py-2 border-slate-200 mt-4"
 						placeholder="0"
 						pattern="^\d*\.?\d*$"
+						required
 					/>
 				</div>
 			</div>
@@ -264,6 +273,7 @@
 						class="block w-full border rounded-md px-4 py-2 border-slate-200 mt-4"
 						placeholder="0"
 						pattern="^\d*\.?\d*$"
+						required
 					/>
 				</div>
 				<div class="w-full px-2 mb-4 md:mb-0 my-4">
@@ -279,6 +289,7 @@
 						class="block w-full border rounded-md px-4 py-2 border-slate-200 mt-4"
 						placeholder="0"
 						pattern="^\d*\.?\d*$"
+						required
 					/>
 				</div>
 			</div>
@@ -296,6 +307,7 @@
 						class="block w-full border rounded-md px-4 py-2 border-slate-200 mt-4"
 						placeholder="0"
 						pattern="^\d*\.?\d*$"
+						required
 					/>
 				</div>
 			</div>
@@ -348,19 +360,20 @@
 						<div class="flex flex-col gap-4 w-screen">
 							<div class="font-bold">Calculation results:</div>
 							<div>
-								Harga sapi di kandang (Rp): <span class="font-semibold"
-									>{formatCurrency(calculations.hargaSapiDiKandang().toFixed(2))}</span
-								>
+								<div>Harga sapi di kandang (Rp):</div>
+								<div class="font-semibold">
+									{formatCurrency(calculations.hargaSapiDiKandang().toFixed(2))}
+								</div>
 							</div>
 							<div>
-								HPP (Rp/Kg): <span class="font-semibold"
-									>{formatCurrency(calculations.hpp().toFixed(2))}</span
-								>
+								<div>HPP (Rp/Kg):</div>
+								<div class="font-semibold">{formatCurrency(calculations.hpp().toFixed(2))}</div>
 							</div>
 							<div>
-								Nett Profit Rp./Ekor: <span class="font-semibold"
-									>{formatCurrency(calculations.nettProfitPerEkor().toFixed(2))}</span
-								>
+								<div>Nett Profit Rp./Ekor:</div>
+								<div class="font-semibold">
+									{formatCurrency(calculations.nettProfitPerEkor().toFixed(2))}
+								</div>
 							</div>
 						</div>
 					</div>
