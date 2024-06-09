@@ -1,15 +1,15 @@
 export interface FormValues {
-  nilaiTukarUSD: number;
-  hargaSapiCIF: number;
-  beratSapi: number;
-  beaMasuk: number;
-  pph: number;
-  biayaImport: number;
-  lamaPemeliharaan: number;
-  biayaPemeliharaan: number;
-  pertambahanBerat: number;
-  tingkatBungaBank: number;
-  biayaOverHead: number;
-  biayaMarketing: number;
-  hargaJualSapi: number;
+  nilaiTukarUSD: string;
+  hargaSapiCIF: string;
+  beratSapi: string;
+  beaMasuk: string;
+  pph: string;
+  biayaImport: string;
+  lamaPemeliharaan: string;
+  biayaPemeliharaan: string;
+  pertambahanBerat: string;
+  tingkatBungaBank: string;
+  biayaOverHead: string;
+  biayaMarketing: string;
+  hargaJualSapi: string;
 }
