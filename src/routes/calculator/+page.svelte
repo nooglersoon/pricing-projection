@@ -6,19 +6,19 @@
 
 	// Initialize state variables
 	let values = writable<FormValues>({
-		nilaiTukarUSD: '0',
-		hargaSapiCIF: '0',
-		beratSapi: '0',
-		beaMasuk: '0',
-		pph: '0',
-		biayaImport: '0',
-		lamaPemeliharaan: '0',
-		biayaPemeliharaan: '0',
-		pertambahanBerat: '0',
-		tingkatBungaBank: '0',
-		biayaOverHead: '0',
-		biayaMarketing: '0',
-		hargaJualSapi: '0'
+		nilaiTukarUSD: '',
+		hargaSapiCIF: '',
+		beratSapi: '',
+		beaMasuk: '',
+		pph: '',
+		biayaImport: '',
+		lamaPemeliharaan: '',
+		biayaPemeliharaan: '',
+		pertambahanBerat: '',
+		tingkatBungaBank: '',
+		biayaOverHead: '',
+		biayaMarketing: '',
+		hargaJualSapi: ''
 	});
 
 	let results = writable<{ [key: string]: string | number }>();
